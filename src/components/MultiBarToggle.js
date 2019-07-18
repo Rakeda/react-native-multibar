@@ -232,7 +232,7 @@ const Styles = {
         justifyContent: 'flex-end'
     },
     toggleButton: {
-        top: 15,
+        top: 0,
         left: 0,
         alignItems: 'center',
         justifyContent: 'center'
