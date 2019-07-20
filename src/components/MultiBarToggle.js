@@ -133,7 +133,7 @@ class MultiBarToggle extends Component {
                         onPress={() => this.actionPressed(route)}
                     >
                         {route.icon}
-                        <Text style={{fontSize: 12, color: '#fff, textTransform: 'uppercase'}}>Host</Text>
+                        <Text style={{fontSize: 12, color: '#fff', textTransform: 'uppercase'}}>Host</Text>
                     </AnimatedTouchable>
                     {route.buttonlabel && (
                         <Text style={[Styles.actionContent, Styles.actionContentLabel]}>
