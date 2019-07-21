@@ -4,14 +4,14 @@ import {Animated, Dimensions, Text, TouchableOpacity, TouchableWithoutFeedback, 
 
 import {Colors} from '../utils';
 
-const DEFAULT_TOGGLE_SIZE = 60;
+const DEFAULT_TOGGLE_SIZE = 80;
 const DEFAULT_ACTION_SIZE = 40;
 const DEFAULT_TOGGLE_ANIMATION_DURATION = 300;
 const DEFAULT_ACTION_STAGING_DURATION = 100;
 const DEFAULT_ACTION_ANIMATION_DURATION = 200;
 const DEFAULT_NAVIGATION_DELAY = 500;
 const DEFAULT_EXPANDING_ANGLE = 135;
-const DEFAULT_OVERLAY_ACTIVE = true;
+const DEFAULT_OVERLAY_ACTIVE = false;
 
 const {width, height} = Dimensions.get('window');
 
@@ -199,6 +199,11 @@ class MultiBarToggle extends Component {
                         <View style={Styles.overlayActive}/>
                     </TouchableWithoutFeedback>
                 )}
+                {measured && (
+                    <View style={Styles.actionsWrapper}>
+                        {this.renderActions()}
+                    </View>
+                )}
                 <AnimatedTouchable
                     activeOpacity={1}
                     onPress={this.togglePressed}
@@ -214,7 +219,7 @@ class MultiBarToggle extends Component {
                         backgroundColor: toggleColor
                     }]}>
                         {icon}
-                        <Text style={{fontSize: 10, bottom: 5, color: '#fff', textTransform: 'uppercase', position: 'absolute', color: this.state.active == true ? '#1EBAD6' : '#fff'}}>Host</Text>
+                        <Text style={{fontSize: 12, color: '#fff', textTransform: 'uppercase'}}>Host</Text>
                     </Animated.View>
                 </AnimatedTouchable>
             </View>
@@ -229,7 +234,6 @@ const Styles = {
         justifyContent: 'flex-end'
     },
     toggleButton: {
-        top: -15,
         left: 0,
         alignItems: 'center',
         justifyContent: 'center'
@@ -243,7 +247,6 @@ const Styles = {
         bottom: 0
     },
     actionContainer: {
-        top: -15,
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center'
@@ -264,7 +267,7 @@ const Styles = {
         height: height * 2,
         width: width * 2,
         backgroundColor: 'rgba(0,0,0,0.5)',
-        bottom: '-150%'
+        bottom: '-100%'
     }
 };
 
